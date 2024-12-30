@@ -21,6 +21,16 @@ public class InputProvider : IInputProvider
         }
     }
 
+    public IEnumerable<char> CharByChar(short year, short day)
+    {
+        var content = GetInput(year, day).Result;
+        using var sr = new StreamReader(content.ReadAsStream());
+        while (sr.Peek() >= 0)
+        {
+            yield return (char)sr.Read();
+        }
+    }
+
     private async Task<HttpContent> GetInput(short year, short day)
     {
         var url = $"{year}/day/{day}/input";

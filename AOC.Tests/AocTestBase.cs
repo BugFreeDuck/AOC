@@ -19,8 +19,12 @@ public class AocTestBase
         Assert.Multiple(() =>
         {
             solver.InputProvider = new TestInputProvider(testInput);
-            Assert.That(solver.SolvePart1(), Is.EqualTo(expectedPart1));
-            Assert.That(solver.SolvePart2(), Is.EqualTo(expectedPart2));
+            var part1 = solver.SolvePart1();
+            var part2 = solver.SolvePart2();
+            Assert.That(part1, Is.EqualTo(expectedPart1));
+            TestContext.Out.WriteLine($"[TEST] Part 1 result: {part1}");
+            Assert.That(part2, Is.EqualTo(expectedPart2));
+            TestContext.Out.WriteLine($"[TEST] Part 2 result: {part2}");
 
             solver.InputProvider = _inputProvider;
             TestContext.Out.WriteLine($"Part 1 result: {solver.SolvePart1()}");

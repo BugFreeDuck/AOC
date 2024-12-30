@@ -39,4 +39,15 @@ public class _2024 : AocTestBase
 
         RunTest(new Day2(), testInput, expectedPart1, expectedPart2);
     }
+
+    [Test]
+    public void Day03()
+    {
+        const int expectedPart1 = 161;
+        const int expectedPart2 = 0;
+        const string testInput = "mul(32,64]then(mul(11,8)mul(8,5))";
+        // const string testInput = "xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))";
+
+        RunTest(new Day3(), testInput, expectedPart1, expectedPart2);
+    }
 }

@@ -15,4 +15,9 @@ public class TestInputProvider : IInputProvider
     {
         return _input.Split(Environment.NewLine);
     }
+
+    public IEnumerable<char> CharByChar(short year, short day)
+    {
+        return _input;
+    }
 }
