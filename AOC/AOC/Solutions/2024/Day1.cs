@@ -21,9 +21,9 @@ public class Day1 : Solution
 
         foreach (var line in input.Split(Environment.NewLine))
         {
-            var nums = line.Split(" ");
-            left.Add(int.Parse(nums[0]));
-            right.Add(int.Parse(nums[1]));
+            var nums = line.Split(" ").Where(x => x != "").ToArray();
+            left.Add(int.Parse(nums.First()));
+            right.Add(int.Parse(nums.Last()));
         }
 
         left.Sort();
