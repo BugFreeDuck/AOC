@@ -1,25 +1,15 @@
-﻿using AOC.Input;
-using AOC.Solutions._2024;
+﻿using AOC.Solutions._2024;
 
-namespace AOC.AOC.Tests._2024;
+namespace AOC.Tests._2024;
 
-public class _2024
+public class _2024 : AocTestBase
 {
-    private readonly InputProvider _inputProvider;
-
-    public _2024()
-    {
-        var client = new HttpClient();
-        client.BaseAddress = new Uri("https://adventofcode.com");
-        var cookie = Environment.GetEnvironmentVariable("AOC_TOKEN");
-        client.DefaultRequestHeaders.Add("Cookie", cookie);
-        _inputProvider = new InputProvider(client);
-    }
-
     [Test]
     public void Day01()
     {
-        var testInputProvider = new TestInputProvider(
+        const int expectedPart1 = 11;
+        const int expectedPart2 = 31;
+        const string testInput =
             """
             3   4
             4   3
@@ -27,13 +17,8 @@ public class _2024
             1   3
             3   9
             3   3
-            """
-        );
+            """;
 
-        var solver = new Day1(testInputProvider);
-        var result = solver.SolvePart1();
-
-        TestContext.Out.WriteLine($"Result: {result}");
-        Assert.That(result, Is.EqualTo(11));
+        RunTest(new Day1(), testInput, expectedPart1, expectedPart2);
     }
 }

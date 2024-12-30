@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using AOC.Input;
 
-namespace AOC.Input;
+namespace AOC.Tests;
 
 public class TestInputProvider : IInputProvider
 {

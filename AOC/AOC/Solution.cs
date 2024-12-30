@@ -7,11 +7,12 @@ public abstract class Solution
     public abstract short Year { get; }
     public abstract short Day { get; }
 
-    protected readonly IInputProvider InputProvider;
+    private IInputProvider? _inputProvider;
 
-    protected Solution(IInputProvider inputProvider)
+    public IInputProvider InputProvider
     {
-        InputProvider = inputProvider;
+        get => _inputProvider ?? throw new Exception("Input provider is not set");
+        set => _inputProvider = value;
     }
 
     public abstract int SolvePart1();

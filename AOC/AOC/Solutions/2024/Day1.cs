@@ -1,39 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using AOC.Input;
-
-namespace AOC.Solutions._2024;
+﻿namespace AOC.Solutions._2024;
 
 public class Day1 : Solution
 {
     public override short Year => 2024;
     public override short Day => 01;
 
-    public Day1(IInputProvider inputProvider) : base(inputProvider) { }
-
     public override int SolvePart1()
     {
-        var input = InputProvider.Get(Year, Day).Result;
+        var (left, right) = ParseInput().Result;
+        left.Sort();
+        right.Sort();
+        return left.Zip(right).Aggregate(0, (i, values) => i += Math.Abs(values.First - values.Second));
+    }
 
+    public override int SolvePart2()
+    {
+        var (left, right) = ParseInput().Result;
+        return left.Sum(number => number * right.Count(x => x == number));
+    }
+
+    private async Task<(List<int> Left, List<int> Right)> ParseInput()
+    {
         var left = new List<int>();
         var right = new List<int>();
 
-        foreach (var line in input.Split(Environment.NewLine))
+        using var sr = new StringReader(await InputProvider.Get(Year, Day));
+        while (await sr.ReadLineAsync() is { } line)
         {
             var nums = line.Split(" ").Where(x => x != "").ToArray();
             left.Add(int.Parse(nums.First()));
             right.Add(int.Parse(nums.Last()));
         }
 
-        left.Sort();
-        right.Sort();
-
-        return left.Zip(right).Aggregate(0, (i, values) => i += Math.Abs(values.First - values.Second));
-    }
-
-    public override int SolvePart2()
-    {
-        throw new NotImplementedException();
+        return (left, right);
     }
 }

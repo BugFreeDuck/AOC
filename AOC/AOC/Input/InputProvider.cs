@@ -36,7 +36,7 @@ public class InputProvider : IInputProvider
 
     private async Task<HttpContent> GetInput(short year, short day)
     {
-        var url = $"{year}/day/${day}/input";
+        var url = $"{year}/day/{day}/input";
         var response = await _httpClient.GetAsync(url);
         if (response.StatusCode != HttpStatusCode.OK)
             throw new HttpRequestException($"Exception occured while getting input for {year}/{day}");
