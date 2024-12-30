@@ -11,20 +11,13 @@ public class InputProvider : IInputProvider
         _httpClient = httpClient;
     }
 
-    public async Task<string> Get(short year, short day)
+    public IEnumerable<string> LineByLine(short year, short day)
     {
-        var content = await GetInput(year, day);
-        return await content.ReadAsStringAsync();
-    }
-
-    public async IAsyncEnumerable<string> LineByLine(short year, short day)
-    {
-        var content = await GetInput(year, day);
-
-        using var sr = new StreamReader(await content.ReadAsStreamAsync());
+        var content = GetInput(year, day).Result;
+        using var sr = new StreamReader(content.ReadAsStream());
         while (!sr.EndOfStream)
         {
-            yield return await sr.ReadLineAsync() ?? string.Empty;
+            yield return sr.ReadLine() ?? string.Empty;
         }
     }
 
