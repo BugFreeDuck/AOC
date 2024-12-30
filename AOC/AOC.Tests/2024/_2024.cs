@@ -26,7 +26,7 @@ public class _2024 : AocTestBase
     public void Day02()
     {
         const int expectedPart1 = 2;
-        const int expectedPart2 = 0;
+        const int expectedPart2 = 4;
         const string testInput =
             """
             7 6 4 2 1
