@@ -1,8 +1,6 @@
-﻿using AOC.Input;
+﻿namespace AOC.Solvers;
 
-namespace AOC;
-
-public abstract class Solution
+public abstract class Solver
 {
     public abstract short Year { get; }
     public abstract short Day { get; }

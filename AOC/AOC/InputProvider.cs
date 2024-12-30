@@ -1,12 +1,6 @@
 ﻿using System.Net;
 
-namespace AOC.Input;
-
-public interface IInputProvider
-{
-    Task<string> Get(short year, short day);
-    IAsyncEnumerable<string> LineByLine(short year, short day);
-}
+namespace AOC.Solvers;
 
 public class InputProvider : IInputProvider
 {

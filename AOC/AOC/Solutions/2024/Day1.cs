@@ -1,6 +1,6 @@
-﻿namespace AOC.Solutions._2024;
+﻿namespace AOC.Solvers.Solutions._2024;
 
-public class Day1 : Solution
+public class Day1 : Solver
 {
     public override short Year => 2024;
     public override short Day => 01;

@@ -1,4 +1,4 @@
-﻿using AOC.Solutions._2024;
+﻿using AOC.Solvers.Solutions._2024;
 
 namespace AOC.Tests._2024;
 

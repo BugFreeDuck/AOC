@@ -1,4 +1,4 @@
-﻿using AOC.Input;
+﻿using AOC.Solvers;
 
 namespace AOC.Tests;
 

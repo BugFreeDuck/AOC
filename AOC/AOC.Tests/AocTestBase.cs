@@ -1,4 +1,4 @@
-﻿using AOC.Input;
+﻿using AOC.Solvers;
 
 namespace AOC.Tests;
 
@@ -14,17 +14,17 @@ public class AocTestBase
         _inputProvider = new InputProvider(client);
     }
 
-    protected void RunTest(Solution solution, string testInput, int expectedPart1, int expectedPart2)
+    protected void RunTest(Solver solver, string testInput, int expectedPart1, int expectedPart2)
     {
         Assert.Multiple(() =>
         {
-            solution.InputProvider = new TestInputProvider(testInput);
-            Assert.That(solution.SolvePart1(), Is.EqualTo(expectedPart1));
-            Assert.That(solution.SolvePart2(), Is.EqualTo(expectedPart2));
+            solver.InputProvider = new TestInputProvider(testInput);
+            Assert.That(solver.SolvePart1(), Is.EqualTo(expectedPart1));
+            Assert.That(solver.SolvePart2(), Is.EqualTo(expectedPart2));
 
-            solution.InputProvider = _inputProvider;
-            TestContext.Out.WriteLine($"Part 1 result: {solution.SolvePart1()}");
-            TestContext.Out.WriteLine($"Part 2 result: {solution.SolvePart2()}");
+            solver.InputProvider = _inputProvider;
+            TestContext.Out.WriteLine($"Part 1 result: {solver.SolvePart1()}");
+            TestContext.Out.WriteLine($"Part 2 result: {solver.SolvePart2()}");
         });
     }
 }
