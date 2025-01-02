@@ -2,6 +2,7 @@
 
 namespace AOC.Tests._2024;
 
+[TestFixture]
 public class _2024 : AocTestBase
 {
     [Test]
@@ -40,14 +41,24 @@ public class _2024 : AocTestBase
         RunTest(new Day2(), testInput, expectedPart1, expectedPart2);
     }
 
-    [Test]
-    public void Day03()
+    public class Day03 : AocTestBase
     {
-        const int expectedPart1 = 161;
-        const int expectedPart2 = 0;
-        const string testInput = "mul(32,64]then(mul(11,8)mul(8,5))";
-        // const string testInput = "xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))";
+        [Test]
+        public void Day03_Part1()
+        {
+            const int expectedResult = 161;
+            const string testInput =  "xmul(2,4)%&mul[3,7]!@^do_not_mul(5,5)+mul(32,64]then(mul(11,8)mul(8,5))";
 
-        RunTest(new Day3(), testInput, expectedPart1, expectedPart2);
+            RunTest(new Day3(), solver => solver.SolvePart1(), testInput, expectedResult);
+        }
+
+        [Test]
+        public void Day03_Part2()
+        {
+            const int expectedResult = 48;
+            const string testInput =  "xmul(2,4)&mul[3,7]!^don't()_mul(5,5)+mul(32,64](mul(11,8)undo()?mul(8,5))";
+
+            RunTest(new Day3(), solver => solver.SolvePart2(), testInput, expectedResult);
+        }
     }
 }
