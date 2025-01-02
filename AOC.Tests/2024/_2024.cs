@@ -20,7 +20,7 @@ public class _2024 : AocTestBase
             3   3
             """;
 
-        RunTest(new Day1(), testInput, expectedPart1, expectedPart2);
+        RunFullTest(new Day1(), testInput, expectedPart1, expectedPart2);
     }
 
     [Test]
@@ -38,7 +38,7 @@ public class _2024 : AocTestBase
             1 3 6 7 9
             """;
 
-        RunTest(new Day2(), testInput, expectedPart1, expectedPart2);
+        RunFullTest(new Day2(), testInput, expectedPart1, expectedPart2);
     }
 
     public class Day03 : AocTestBase
@@ -60,5 +60,26 @@ public class _2024 : AocTestBase
 
             RunTest(new Day3(), solver => solver.SolvePart2(), testInput, expectedResult);
         }
+    }
+
+    [Test]
+    public void Day04()
+    {
+        const int expectedPart1 = 18;
+        const string testInput =
+            """
+            MMMSXXMASM
+            MSAMXMSMSA
+            AMXSXMAAMM
+            MSAMASMSMX
+            XMASAMXAMM
+            XXAMMXXAMA
+            SMSMSASXSS
+            SAXAMASAAA
+            MAMMMXMMMM
+            MXMXAXMASX
+            """;
+
+        RunTest(new Day4(), solver => solver.SolvePart1(), testInput, expectedPart1);
     }
 }

@@ -31,6 +31,11 @@ public class InputProvider : IInputProvider
         }
     }
 
+    public char[,] CharMatrix(short year, short day)
+    {
+        throw new NotImplementedException();
+    }
+
     private async Task<HttpContent> GetInput(short year, short day)
     {
         var url = $"{year}/day/{day}/input";

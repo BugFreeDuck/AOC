@@ -23,8 +23,8 @@ public class AocTestBase
             Assert.That(result, Is.EqualTo(expectedResult));
             TestContext.Out.WriteLine($"[TEST] result: {result}");
 
-            solver.InputProvider = _inputProvider;
-            TestContext.Out.WriteLine($"Part 1 result: {solvingMethodSelector(solver)}");
+            // solver.InputProvider = _inputProvider;
+            // TestContext.Out.WriteLine($"Part 1 result: {solvingMethodSelector(solver)}");
         });
     }
 
